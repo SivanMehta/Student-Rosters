@@ -1,3 +1,4 @@
+var mongoModel = require("./models/mongoModel.js");
 
 module.exports = function(app, passport)
 {
@@ -34,17 +35,19 @@ module.exports = function(app, passport)
     }));
 
     
-    app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', { user : req.user });
-    });
-
-    // route for showing the profile page
     app.get('/profile', isLoggedIn, function(req, res)
     {
-        res.render('profile.ejs',
+        var users;
+
+        mongoModel.retrieve("users",
+        {},
+        function(modelData)
         {
-            user : req.user // get the user out of session and pass to template
+            users = modelData;
+            res.render('profile.ejs', { currentUser : req.user,
+                                        users : users});
         });
+
     });
 
     app.get('/logout', function(req, res) {
