@@ -1,0 +1,37 @@
+[
+    { "facebook": {
+        "_id" : 1,
+        "photo" : "https://upload.wikimedia.org/wikipedia/commons/e/e0/John_Cena_2012.jpg",
+        "email" : "johncena@something.not",
+        "name"  : "John Cena",
+        "token" : "7d8c208b0635811ef96b455f9803aebce1d648c8"
+    }},
+    { "facebook": {
+        "_id" : 2,
+        "photo" : "https://upload.wikimedia.org/wikipedia/commons/b/b7/Dr._Subra_Suresh%2C_Ninth_President_of_Carnegie_Mellon_University%2C_July_2013.jpg",
+        "email" : "president@cmu.edu",
+        "name"  : "Subra Suresh",
+        "token" : "c811db15675e5117ab8cd888363cef8fe4dcd59b"
+    }},
+    { "facebook": {
+        "_id" : 3,
+        "photo" : "https://upload.wikimedia.org/wikipedia/en/5/5c/Spongebob-squarepants.png",
+        "email" : "robert@absorbents.com",
+        "name"  : "Spongebob Squarepants",
+        "token" : "f0f4be9294f3aa94e7edf576382b3e816b24e32e"
+    }},
+    { "facebook": {
+        "_id" : 4,
+        "photo" : "https://avatars0.githubusercontent.com/u/1064958",
+        "email" : "joemertz@cmu.edu",
+        "name"  : "Joe Mertz",
+        "token" : "7d8c208b0635811ef96b455f9803aebce1d648c8"
+    }},
+    { "facebook": {
+        "_id" : 5,
+        "photo" : "https://upload.wikimedia.org/wikipedia/en/7/75/Comic_Art_-_Batman_by_Jim_Lee_%282002%29.png",
+        "email" : "batman@justiceleague.net",
+        "name"  : "Bruce Wayne",
+        "token" : "dcac3b6e5aadee0fcac8c2d3250d1f38b9e78040"
+    }}
+]
