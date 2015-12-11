@@ -37,14 +37,19 @@ module.exports = function(app, passport)
     
     app.get('/profile', isLoggedIn, function(req, res)
     {
+        res.render('profile', { currentUser : req.user});
+    });
+
+    app.get('/users', isLoggedIn, function(req, res)
+    {
         var users;
 
         mongoModel.retrieve("users",
-        {},
+        { facebook: { $exists: true}},
         function(modelData)
         {
             users = modelData;
-            res.render('profile.ejs', { currentUser : req.user,
+            res.render('users', { currentUser : req.user,
                                         users : users});
         });
 
