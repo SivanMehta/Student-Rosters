@@ -11,30 +11,6 @@
 <body>
 <div class="container">
 
-    <% if(currentUser.facebook.email != undefined) { %>
-        <div class="page-header text-center">
-            <h1><span class="fa fa-anchor"></span> Welcome <%= currentUser.facebook.name %></h1>
-            <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-        </div>
-
-        <div class="row">
-
-
-        <!-- FACEBOOK INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
-
-                    <p>
-                        <strong>name</strong>: <%= currentUser.facebook.name %><br>
-                        <img src = "<%= currentUser.facebook.photo %>" />
-                    </p>
-
-            </div>
-        </div>
-
-    <% } else { %>
-
         <div class="page-header text-center">
             <h1><span class="fa fa-anchor"></span> Welcome <%= currentUser.local.email%></h1>
             <a href="/logout" class="btn btn-default btn-sm">Logout</a>
@@ -50,8 +26,6 @@
         <button type="button" class="btn btn-default btn-lg">
             <span class="glyphicon glyphicon-plus"></span> Add a Class
         </button>
-    <% } %>
-
 
     </div>
 </div>
