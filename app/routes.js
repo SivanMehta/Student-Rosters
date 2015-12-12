@@ -44,14 +44,20 @@ module.exports = function(app, passport)
     {
         var users;
 
-        mongoModel.retrieve("users",
-        { facebook: { $exists: true}},
-        function(modelData)
+        if(req.user.local.email == undefined)
         {
-            users = modelData;
-            res.render('users', { currentUser : req.user,
-                                        users : users});
-        });
+            res.render("index");
+            return;
+        }
+
+        mongoModel.retrieve("users",
+            { facebook: { $exists: true}},
+            function(modelData)
+            {
+                users = modelData;
+                res.render('users', { currentUser : req.user,
+                                            users : users});
+            });
 
     });
 
