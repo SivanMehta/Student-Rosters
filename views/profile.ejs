@@ -11,42 +11,47 @@
 <body>
 <div class="container">
 
-    <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-    </div>
+    <% if(currentUser.facebook.email != undefined) { %>
+        <div class="page-header text-center">
+            <h1><span class="fa fa-anchor"></span> Welcome <%= currentUser.facebook.name %></h1>
+            <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        </div>
 
-    <div class="row">
+        <div class="row">
 
-        <% if(currentUser.facebook.email != undefined) { %>
 
-            <!-- FACEBOOK INFORMATION -->
-            <div class="col-sm-6">
-                <div class="well">
-                    <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+        <!-- FACEBOOK INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
 
-                        <p>
-                            <strong>name</strong>: <%= currentUser.facebook.name %><br>
-                            <img src = "<%= currentUser.facebook.photo %>" />
-                        </p>
+                    <p>
+                        <strong>name</strong>: <%= currentUser.facebook.name %><br>
+                        <img src = "<%= currentUser.facebook.photo %>" />
+                    </p>
 
-                </div>
             </div>
+        </div>
 
-        <% } else { %>
-            <!-- Local Information -->
-            <div class="col-sm-6">
-                <div class="well">
-                    <h3 class="text-primary"><span class="fa fa-user fa-fw"></span> Local Information</h3>
+    <% } else { %>
 
-                        <p>
-                            <strong>email</strong>: <%= currentUser.local.email %><br>
-                            <strong>Hashed Password</strong>: <%= currentUser.local.password %><br>
-                        </p>
+        <div class="page-header text-center">
+            <h1><span class="fa fa-anchor"></span> Welcome <%= currentUser.local.email%></h1>
+            <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        </div>
+        <!-- Local Information -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3 class="text-primary"><span class="fa fa-user fa-fw"></span> Local Information</h3>
 
-                </div>
+                    <p>
+                        <strong>email</strong>: <%= currentUser.local.email %><br>
+                        <strong>Hashed Password</strong>: <%= currentUser.local.password %><br>
+                    </p>
+
             </div>
-        <% } %>
+        </div>
+    <% } %>
 
 
     </div>
