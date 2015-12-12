@@ -11,7 +11,7 @@ module.exports = function(app, passport)
     app.get('/login', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('login.ejs', { message: req.flash('loginMessage') }); 
+        res.render('login', { message: req.flash('loginMessage') }); 
     });
 
     app.post('/login', passport.authenticate('local-login', {
@@ -24,7 +24,7 @@ module.exports = function(app, passport)
     app.get('/signup', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('signup.ejs', { message: req.flash('signupMessage') });
+        res.render('signup', { message: req.flash('signupMessage') });
     });
 
     // process the signup form
@@ -39,11 +39,11 @@ module.exports = function(app, passport)
     {
         if(req.user.local.email == undefined)
         {
-            res.render("facebookProfile", {user : req.user});
+            res.render("users/facebookProfile", {user : req.user});
             return;
         }
 
-        res.render('profile', { currentUser : req.user,
+        res.render('users/profile', { currentUser : req.user,
                                 classes : ["Math", "Science", "English", "History", "Art"] });
     });
 
@@ -59,7 +59,7 @@ module.exports = function(app, passport)
             { facebook: { $exists: true}},
             function(modelData)
             {
-                res.render('users', { currentUser : req.user,
+                res.render('users/all', { currentUser : req.user,
                                             users : modelData});
             });
 
