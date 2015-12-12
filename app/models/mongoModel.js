@@ -31,7 +31,6 @@ mongoClient.connect('mongodb://' + connection_string, function(err, db)
 exports.create = function(collection, data, callback)
 {
     // do an asynchronous insert into the given collection
-
     mongoDB.collection(collection).insertOne(
         data,
         function(err, status)

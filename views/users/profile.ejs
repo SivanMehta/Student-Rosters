@@ -7,14 +7,14 @@
 <div class="container">
 
         <div class="page-header text-center">
-            <h1><span class="fa fa-anchor"></span> Welcome <%= currentUser.local.email%></h1>
+            <h1><span class="fa fa-anchor"></span> Welcome <%= currentUser %></h1>
             <a href="/logout" class="btn btn-default btn-sm">Logout</a>
         </div>
         <!-- Local Information -->
 
         <ul class="list-group"> Your Classes
             <% for(var i = 0; i < classes.length; i ++) { %>
-                <li class = "list-group-item"><a href = "#!"><%= classes[i] %></a></li>
+                <li class = "list-group-item"><a href = "#!"><%= classes[i].className %></a></li>
             <% } %>
         </ul>
 

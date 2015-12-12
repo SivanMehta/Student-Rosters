@@ -1,4 +1,5 @@
 var mongoModel = require("./models/mongoModel.js");
+var mongoModel = require("./models/classes.js");
 
 module.exports = function(app, passport)
 {
@@ -43,8 +44,7 @@ module.exports = function(app, passport)
             return;
         }
 
-        res.render('users/profile', { currentUser : req.user,
-                                classes : ["Math", "Science", "English", "History", "Art"] });
+        getUsersClasses(req.user.local.email, res);
     });
 
     app.get('/users', isLoggedIn, function(req, res)
