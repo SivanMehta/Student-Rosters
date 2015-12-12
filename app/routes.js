@@ -37,13 +37,18 @@ module.exports = function(app, passport)
     
     app.get('/profile', isLoggedIn, function(req, res)
     {
-        res.render('profile', { currentUser : req.user});
+        if(req.user.local.email == undefined)
+        {
+            res.render("facebookProfile", {user : req.user});
+            return;
+        }
+
+        res.render('profile', { currentUser : req.user,
+                                classes : ["Math", "Science", "English", "History", "Art"] });
     });
 
     app.get('/users', isLoggedIn, function(req, res)
     {
-        var users;
-
         if(req.user.local.email == undefined)
         {
             res.render("index");
@@ -54,9 +59,8 @@ module.exports = function(app, passport)
             { facebook: { $exists: true}},
             function(modelData)
             {
-                users = modelData;
                 res.render('users', { currentUser : req.user,
-                                            users : users});
+                                            users : modelData});
             });
 
     });
