@@ -1,3 +1,9 @@
+/*
+Largely based off of the tutorial provided here:
+https://scotch.io/tutorials/easy-node-authentication-setup-and-local
+*/
+
+
 var express  = require('express');
 var app      = express();
 var port     = process.env.PORT || 50000;
