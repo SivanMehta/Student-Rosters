@@ -40,12 +40,19 @@ oneClass = function(request, response)
         className : request.params.className
     }
 
-    mongoModel.retrieve("classes",
-    query,
-    function(classes)
-    {   
-        response.render('classes/one', { classData : classes[0] });
-    })
+    mongoModel.retrieve("enrollments",
+        {className: request.params.className},
+        function(enrollments)
+        {
+            mongoModel.retrieve("classes",
+            query,
+            function(classes)
+            {   
+                response.render('classes/one', { classData : classes[0], enrollments: enrollments });
+            });
+        }
+    );
+
 
 }
 

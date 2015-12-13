@@ -4,8 +4,18 @@
 </head>
 <body>
     <div class = "container">
-        
-        <%= JSON.stringify(classData) %>
+        <div class = "row">
 
+            <div class="col-md-6">
+                <h1><%= classData.className %></h1>
+            </div>
+
+            <div class="col-md-6">
+                <h2>Students</h2>
+                <%= JSON.stringify(enrollments) %> <br />
+            </div>
+
+        </div>
+        
     </div>
 </body>
