@@ -1,5 +1,4 @@
 var mongoModel = require("./models/mongoModel.js");
-var mongoModel = require("./models/classes.js");
 
 module.exports = function(app, passport)
 {
