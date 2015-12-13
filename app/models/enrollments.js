@@ -9,14 +9,21 @@ exports.init = function(app)
 
 enrollmentsForm = function(request, response)
 {
-    mongoModel.retrieve("users",
-    { facebook: { $exists: true}},
-    function(students)
+    mongoModel.retrieve("enrollments",
+    {className : request.params.className,
+     instructor : request.user.local.email},
+    function(enrollments)
     {
-        response.render("enrollments/create", {className : request.params.className,
-                                               students: students});
-    }
-    );
+        mongoModel.retrieve("users",
+        { facebook: { $exists: true}},
+        function(students)
+        {
+            response.render("enrollments/create", {className : request.params.className,
+                                                   students: students,
+                                                   currentEnrollments: enrollments});
+        }
+        );
+    });
 
 }
 
