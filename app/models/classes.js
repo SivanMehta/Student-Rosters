@@ -8,6 +8,8 @@ exports.init = function(app)
     });
 
     app.post("/classes/create", isLoggedIn, createClass);
+
+    app.get("/classes/:className", isLoggedIn, oneClass)
 }
 
 getUsersClasses = function(email, response)
@@ -29,6 +31,22 @@ createClass = function(request, response)
     {
         getUsersClasses(request.user.local.email, response);
     });
+}
+
+oneClass = function(request, response)
+{
+    query = {
+        creator : request.user.local.email,
+        className : request.params.className
+    }
+
+    mongoModel.retrieve("classes",
+    query,
+    function(classes)
+    {   
+        response.render('classes/one', { classData : classes[0] });
+    })
+
 }
 
 function isLoggedIn(req, res, next)
