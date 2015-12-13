@@ -2,10 +2,12 @@ var mongoModel = require("./mongoModel.js");
 
 exports.init = function(app)
 {
-    app.get("/enrollments/:className/create", isLoggedIn, createEnrollments);
+    app.get("/enrollments/:className/create", isLoggedIn, enrollmentsForm);
+
+    app.post("/enrollments/:className/create", isLoggedIn, generateEnrollments)
 }
 
-createEnrollments = function(request, response)
+enrollmentsForm = function(request, response)
 {
     mongoModel.retrieve("users",
     { facebook: { $exists: true}},
@@ -15,6 +17,30 @@ createEnrollments = function(request, response)
                                                students: students});
     }
     );
+
+}
+
+generateEnrollments = function(request, response)
+{
+    var lucky_students = Object.keys(request.body);
+
+    var insertions = [];
+
+    for(var i = 0; i < lucky_students.length; i ++)
+    {
+        insertions.push({
+            className: request.params.className,
+            student: lucky_students[i],
+            instructor: request.user.local.email
+        })
+    }
+
+    mongoModel.create("enrollments",
+    insertions,
+    function(crashed)
+    {
+        response.render("classes/one", {enrollments: insertions, classData: {className: request.params.className}});
+    });
 
 }
 

@@ -16,7 +16,7 @@
                 <% } else { %>
                 <h2>Students</h2>
                 <ul><% for(var i = 0; i < enrollments.length; i ++) { %>
-                    <%= enrollments[i] %>
+                    <li><%= enrollments[i].student %></li>
                     <% } %>
                 </ul>
                 <% } %>
