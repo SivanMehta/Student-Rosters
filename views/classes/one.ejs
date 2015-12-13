@@ -11,8 +11,19 @@
             </div>
 
             <div class="col-md-6">
+                <% if (enrollments.length == 0) { %>
+                    <h2> There are no students <h2/>
+                <% } else { %>
                 <h2>Students</h2>
-                <%= JSON.stringify(enrollments) %> <br />
+                <ul><% for(var i = 0; i < enrollments.length; i ++) { %>
+                    <%= enrollments[i] %>
+                    <% } %>
+                </ul>
+                <% } %>
+
+                <a href = "/enrollments/create"><button type="button" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-plus"></span> Add Students
+                </button></a>
             </div>
 
         </div>
