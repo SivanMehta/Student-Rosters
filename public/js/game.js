@@ -18,7 +18,7 @@ setup_game = function()
         url: "/students/" + className,
         success: function(data, status)
         {
-            students = data;
+            students = JSON.parse(data);
             guessTheName(students)
         }
 
@@ -38,8 +38,10 @@ shuffle = function(arr)
     return shuffled
 }
 
+var accessMe;
+
 guessTheName = function(students)
 {
     students = shuffle(students);
-    console.log(students);
+    accessMe = students;
 }
