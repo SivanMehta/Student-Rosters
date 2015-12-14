@@ -5,10 +5,11 @@ $("#startGame").click(function()
     setup_game();
 });
 
+var students;
+
 setup_game = function()
 {
     var className = $("li a").contents()[1].data;
-    var students;
 
     $.ajax({
         type: "GET",
@@ -37,8 +38,9 @@ shuffle = function(arr)
 }
 
 var correct;
+var score = 0;
 
-guessTheName = function(students)
+guessTheName = function()
 {
     students = shuffle(students);
     var victims = students.slice(0, 4);
@@ -68,5 +70,8 @@ guessTheName = function(students)
 
 guessName = function(index)
 {
-    console.log(index == correct);
+    if(index == correct)
+    {
+        score += 1;
+    }
 }
