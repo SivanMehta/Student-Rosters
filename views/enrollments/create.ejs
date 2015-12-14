@@ -23,7 +23,7 @@
                         <% if (currently_enrolled.indexOf(students[i].facebook.name) < 0) { %>
                             <input type="checkbox" name = "<%= students[i].facebook.name %>"> <%= students[i].facebook.name %>
                         <% } else { %>
-                            <input type="checkbox" name = "<%= students[i].facebook.name %>" checked = "true"> <%= students[i].facebook.name %>
+                            <input type="checkbox" name = "<%= students[i].facebook.name %>" checked = "true" disabled> <%= students[i].facebook.name %>
                         <% } %>
                     </label>
                 </div>
