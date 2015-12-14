@@ -3,7 +3,6 @@ Largely based off of the tutorial provided here:
 https://scotch.io/tutorials/easy-node-authentication-setup-and-local
 */
 
-
 var express  = require('express');
 var app      = express();
 var port     = process.env.PORT || 50000;
@@ -18,7 +17,7 @@ var session      = require('express-session');
 
 var configDB = require('./config/database.js');
 
-// configuration ===============================================================
+// configuration 
 mongoose.connect(configDB.url); // connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration
@@ -36,11 +35,11 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-// routes ======================================================================
+// routes 
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 require('./app/models/classes.js').init(app);
 require('./app/models/enrollments.js').init(app);
 
-// launch ======================================================================
+// launch 
 app.listen(port);
 console.log('Server Running at localhost:' + port);
