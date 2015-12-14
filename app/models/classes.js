@@ -10,7 +10,8 @@ exports.init = function(app)
 
     app.post("/classes/create", isLoggedIn, createClass);
 
-    app.get("/classes/:className", isLoggedIn, oneClass)
+    app.get("/classes/:className", isLoggedIn, oneClass);
+    app.get("/classes/:className/train", training)
 }
 
 getUsersClasses = function(email, response)
@@ -59,8 +60,12 @@ oneClass = function(request, response)
             });
         }
     );
+}
 
-
+training = function(request, response)
+{
+    response.render("classes/train", {navData: {breadcrumb: [["Classes", "/profile"], [request.params.className, "/classes/" + request.params.className]],
+                                                           currentPage: "Train"}})
 }
 
 function isLoggedIn(req, res, next)
