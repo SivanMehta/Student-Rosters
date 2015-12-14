@@ -11,7 +11,7 @@ exports.init = function(app)
     app.post("/classes/create", isLoggedIn, createClass);
 
     app.get("/classes/:className", isLoggedIn, oneClass);
-    app.get("/classes/:className/train", training)
+    app.get("/classes/:className/train", isLoggedIn, training)
 }
 
 getUsersClasses = function(email, response)
