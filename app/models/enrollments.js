@@ -20,7 +20,11 @@ enrollmentsForm = function(request, response)
         {
             response.render("enrollments/create", {className : request.params.className,
                                                    students: students,
-                                                   currentEnrollments: enrollments});
+                                                   currentEnrollments: enrollments,
+                                                   navData: {breadcrumb: [["Classes", "/profile"], [request.params.className, "/classes" + "request.params.className"]],
+                                                           currentPage: "Add Students"}
+
+                                                    });
         }
         );
     });
