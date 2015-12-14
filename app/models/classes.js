@@ -19,7 +19,9 @@ getUsersClasses = function(email, response)
     function(classes)
     {   
         response.render('users/profile', { currentUser : email,
-                                    classes : classes });
+                                           classes : classes,
+                                           navData: {breadcrumb: [["Profile", "#!"]],
+                                                           currentPage: email} });
     })
 }
 
