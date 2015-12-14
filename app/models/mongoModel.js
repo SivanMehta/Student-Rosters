@@ -30,6 +30,12 @@ mongoClient.connect('mongodb://' + connection_string, function(err, db)
 
 exports.create = function(collection, data, callback)
 {
+  if(typeof(data.length) == "number" && data.length == 0)
+  {
+      callback(false);
+  }
+  else
+  {
     // do an asynchronous insert into the given collection
     mongoDB.collection(collection).insert(
         data,
@@ -42,6 +48,7 @@ exports.create = function(collection, data, callback)
             callback(success);
         }
         );
+  }
 }
 
 exports.retrieve = function(collection, query, callback)
