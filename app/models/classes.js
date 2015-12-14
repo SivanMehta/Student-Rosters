@@ -2,9 +2,10 @@ var mongoModel = require("./mongoModel.js");
 
 exports.init = function(app)
 {
-    app.get("/classes/create", function(request, response)
+    app.get("/classes/create", isLoggedIn, function(request, response)
     {
-        response.render("classes/create", {});
+        response.render("classes/create", { navData: {breadcrumb: [["Classes", "/profile"]],
+                                                           currentPage: "Create"}});
     });
 
     app.post("/classes/create", isLoggedIn, createClass);
