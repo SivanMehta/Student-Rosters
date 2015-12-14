@@ -8,10 +8,7 @@ $("#startGame").click(function()
 setup_game = function()
 {
     var className = $("li a").contents()[1].data;
-
     var students;
-
-    console.log(className);
 
     $.ajax({
         type: "GET",
@@ -38,10 +35,28 @@ shuffle = function(arr)
     return shuffled
 }
 
-var accessMe;
+var victims;
 
 guessTheName = function(students)
 {
     students = shuffle(students);
-    accessMe = students;
+    victims = students.slice(0, 4);
+
+    var pictureRow = document.createElement("div");
+    pictureRow.class = "row";
+
+    for(var i = 0; i < victims.length; i++)
+    {
+        var thumbnail = $.parseHTML("<div class='col-xs-6 col-md-3'>" + 
+                                        "<a href = '#!' class = 'thumbnail'>" + 
+                                            "<img src = " + victims[i].facebook.photo +  " >" + 
+                                        "</a>" + 
+                                    "</div>")[0];
+
+        pictureRow.appendChild(thumbnail);
+    }
+
+    playground.appendChild(pictureRow);
+
+
 }
