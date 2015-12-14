@@ -46,7 +46,9 @@ generateEnrollments = function(request, response)
     insertions,
     function(crashed)
     {
-        response.render("classes/one", {enrollments: insertions, classData: {className: request.params.className}});
+        response.render("classes/one", {enrollments: insertions, 
+                                        classData: {className: request.params.className},
+                                        navData: {breadcrumb: ["Home", "Classes", request.params.className]}});
     });
 
 }

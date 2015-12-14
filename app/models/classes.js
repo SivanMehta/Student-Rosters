@@ -48,7 +48,11 @@ oneClass = function(request, response)
             query,
             function(classes)
             {   
-                response.render('classes/one', { classData : classes[0], enrollments: enrollments });
+                response.render('classes/one', { classData : classes[0],
+                                                 enrollments: enrollments,
+                                                 navData: {breadcrumb: [["Classes", "/profile"]],
+                                                           currentPage: request.params.className} 
+                                                });
             });
         }
     );
