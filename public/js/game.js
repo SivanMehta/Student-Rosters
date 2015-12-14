@@ -22,6 +22,7 @@ setup_game = function()
     });
 }
 
+// Fisher-Yates Algorithm
 shuffle = function(arr)
 {
     var shuffled = arr.slice(0), i = arr.length, temp, index;
@@ -35,19 +36,20 @@ shuffle = function(arr)
     return shuffled
 }
 
-var victims;
+var correct;
 
 guessTheName = function(students)
 {
     students = shuffle(students);
-    victims = students.slice(0, 4);
+    var victims = students.slice(0, 4);
+    correct = Math.round(Math.random() * 4);
 
     var pictureRow = document.createElement("div");
     pictureRow.class = "row";
 
     for(var i = 0; i < victims.length; i++)
     {
-        var thumbnail = $.parseHTML("<div class='col-xs-6 col-md-3'>" + 
+        var thumbnail = $.parseHTML("<div class = 'col-xs-6 col-md-3' onclick = 'guessName(" + victims[i].facebook.name + ")'>" + 
                                         "<a href = '#!' class = 'thumbnail'>" + 
                                             "<img src = " + victims[i].facebook.photo +  " >" + 
                                         "</a>" + 
@@ -56,7 +58,10 @@ guessTheName = function(students)
         pictureRow.appendChild(thumbnail);
     }
 
-    playground.appendChild(pictureRow);
+    var question_prompt = document.createElement("b");
+    question_prompt.textContent = "Who is " + victims[correct].facebook.name + "?";
 
+    playground.appendChild(question_prompt);
+    playground.appendChild(pictureRow);
 
 }
