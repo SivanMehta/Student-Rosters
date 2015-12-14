@@ -3,8 +3,9 @@ var mongoModel = require("./mongoModel.js");
 exports.init = function(app)
 {
     app.get("/enrollments/:className/create", isLoggedIn, enrollmentsForm);
+    
+    app.post("/enrollments/:className/create", isLoggedIn, generateEnrollments);
 
-    app.post("/enrollments/:className/create", isLoggedIn, generateEnrollments)
 }
 
 enrollmentsForm = function(request, response)
@@ -25,8 +26,7 @@ enrollmentsForm = function(request, response)
                                                            currentPage: "Add Students"}
 
                                                     });
-        }
-        );
+        });
     });
 
 }

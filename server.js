@@ -42,6 +42,7 @@ app.use(express.static(__dirname + '/public'));
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 require('./app/models/classes.js').init(app);
 require('./app/models/enrollments.js').init(app);
+require('./app/models/game.js').init(app);
 
 // launch 
 app.listen(port);
