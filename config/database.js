@@ -1,3 +1,3 @@
 module.exports = {
-    'url' : "localhost:27017/facebookUsers"
+    'url' : "localhost:27017/studentRosters"
 };

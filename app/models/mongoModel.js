@@ -2,7 +2,7 @@
 var mongoClient = require('mongodb').MongoClient;
 
 // connect to the database
-var connection_string = 'localhost:27017/facebookUsers';
+var connection_string = 'localhost:27017/studentRosters';
 
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD)
 {
