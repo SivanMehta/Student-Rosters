@@ -19,13 +19,27 @@ setup_game = function()
         success: function(data, status)
         {
             students = data;
-            renderGame(students)
+            guessTheName(students)
         }
 
     });
 }
 
-renderGame = function(students)
+shuffle = function(arr)
 {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+
+    return shuffled
+}
+
+guessTheName = function(students)
+{
+    students = shuffle(students);
     console.log(students);
 }
