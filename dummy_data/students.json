@@ -43,21 +43,21 @@
     }},
     { "facebook": {
         "_id" : 7,
-        "photo" : "https://upload.wikimedia.org/wikipedia/commons/5/51/JohnLennonpeace.jpg",
+        "photo" : "http://www.clashmusic.com/sites/default/files/legacy/files/paul-mccartney_5.jpg",
         "email" : "paul@beatles.com",
         "name"  : "Paul McCartney",
         "token" : "f46b4113653d348b7f8da49492bf1bd39ffa3b3a"
     }},
     { "facebook": {
         "_id" : 8,
-        "photo" : "https://upload.wikimedia.org/wikipedia/commons/5/51/JohnLennonpeace.jpg",
+        "photo" : "https://upload.wikimedia.org/wikipedia/commons/0/05/George_Harrison_1974_edited.jpg",
         "email" : "george@beatles.com",
         "name"  : "George Harrison",
         "token" : "dc9b4b7ee7ca8369c53beab64a043539704bedd5"
     }},
     { "facebook": {
         "_id" : 9,
-        "photo" : "https://upload.wikimedia.org/wikipedia/commons/5/51/JohnLennonpeace.jpg",
+        "photo" : "http://i2.listal.com/image/2325743/600full-ringo-starr.jpg",
         "email" : "ringo@beatles.com",
         "name"  : "Ringo Starr",
         "token" : "8ecb61c583c14766397a1d9d2b41cd193323db0b"
