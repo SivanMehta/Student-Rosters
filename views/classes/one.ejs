@@ -4,7 +4,7 @@
 </head>
 <body>
     <script type="text/javascript">
-        if(window.location.pathname == "/enrollments/<%= classData.className %>/create") // I know embedded js in a js
+        if(window.location.pathname == "/enrollments/" + encodeURIComponent("<%= classData.className %>") + "/create") // I know embedded js in a js
         {
             window.location = "/classes/<%= classData.className %>"
         }
