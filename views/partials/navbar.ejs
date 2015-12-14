@@ -1,13 +1,15 @@
 <div class = "page-header">
 
-<h1 class = "center">Student Rosters</h1>
-<nav class = "navbar">
-    <ol class="breadcrumb">
-        <% for(var i = 0; i < navData.breadcrumb.length; i++) { %>
-            <li><a href="<%= navData.breadcrumb[i][1] %>"><%= navData.breadcrumb[i][0] %></a></li>
-        <% } %>
-        <li class="active"><%= navData.currentPage %></li>
-    </ol>
+<nav class = "navbar navbar-default">
+    <div class="container-fluid">
+        <span class="navbar-brand"><h1>Student Rosters</h1></span>
+        <ol class="breadcrumb navbar-text navbar-right">
+            <% for(var i = 0; i < navData.breadcrumb.length; i++) { %>
+                <li><a href="<%= navData.breadcrumb[i][1] %>"><%= navData.breadcrumb[i][0] %></a></li>
+            <% } %>
+            <li class="active"><%= navData.currentPage %></li>
+        </ol>
+    </div>
 </nav>
 
 </div>
