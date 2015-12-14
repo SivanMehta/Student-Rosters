@@ -48,7 +48,8 @@ generateEnrollments = function(request, response)
     {
         response.render("classes/one", {enrollments: insertions, 
                                         classData: {className: request.params.className},
-                                        navData: {breadcrumb: ["Home", "Classes", request.params.className]}});
+                                        navData: {breadcrumb: [["Classes", "/profile"]],
+                                                           currentPage: request.params.className} });
     });
 
 }
