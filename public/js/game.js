@@ -49,7 +49,7 @@ guessTheName = function(students)
 
     for(var i = 0; i < victims.length; i++)
     {
-        var thumbnail = $.parseHTML("<div class = 'col-xs-6 col-md-3' onclick = 'guessName(" + victims[i].facebook.name + ")'>" + 
+        var thumbnail = $.parseHTML("<div class = 'col-xs-6 col-md-3' onclick = 'guessName(" + i + ")'>" + 
                                         "<a href = '#!' class = 'thumbnail'>" + 
                                             "<img src = " + victims[i].facebook.photo +  " >" + 
                                         "</a>" + 
@@ -64,4 +64,9 @@ guessTheName = function(students)
     playground.appendChild(question_prompt);
     playground.appendChild(pictureRow);
 
+}
+
+guessName = function(index)
+{
+    console.log(index == correct);
 }
