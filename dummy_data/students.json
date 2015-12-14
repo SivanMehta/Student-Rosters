@@ -33,5 +33,76 @@
         "email" : "batman@justiceleague.net",
         "name"  : "Bruce Wayne",
         "token" : "dcac3b6e5aadee0fcac8c2d3250d1f38b9e78040"
+    }},
+    { "facebook": {
+        "_id" : 6,
+        "photo" : "https://upload.wikimedia.org/wikipedia/commons/5/51/JohnLennonpeace.jpg",
+        "email" : "john@beatles.com",
+        "name"  : "John Lennon",
+        "token" : "7ca8c73b59dbcd4e0d7495dd56c6ca6654017c84"
+    }},
+    { "facebook": {
+        "_id" : 7,
+        "photo" : "https://upload.wikimedia.org/wikipedia/commons/5/51/JohnLennonpeace.jpg",
+        "email" : "paul@beatles.com",
+        "name"  : "Paul McCartney",
+        "token" : "f46b4113653d348b7f8da49492bf1bd39ffa3b3a"
+    }},
+    { "facebook": {
+        "_id" : 8,
+        "photo" : "https://upload.wikimedia.org/wikipedia/commons/5/51/JohnLennonpeace.jpg",
+        "email" : "george@beatles.com",
+        "name"  : "George Harrison",
+        "token" : "dc9b4b7ee7ca8369c53beab64a043539704bedd5"
+    }},
+    { "facebook": {
+        "_id" : 9,
+        "photo" : "https://upload.wikimedia.org/wikipedia/commons/5/51/JohnLennonpeace.jpg",
+        "email" : "ringo@beatles.com",
+        "name"  : "Ringo Starr",
+        "token" : "8ecb61c583c14766397a1d9d2b41cd193323db0b"
+    }},
+    { "facebook": {
+        "_id" : 10,
+        "photo" : "http://www.4geekslikeyou.com/wp-content/uploads/2014/02/goku_by_maffo1989-d4vxux4.png",
+        "email" : "kakarot@super.saiyan",
+        "name"  : "Son Goku",
+        "token" : "084da1bff10c3530143a63851c7d182a774ac566"
+    }},
+    { "facebook": {
+        "_id" : 11,
+        "photo" : "http://vignette3.wikia.nocookie.net/dragonballfanon/images/e/e0/Teen_gohan_render_by_luishatakeuchiha-d68wcp9.png/revision/latest?cb=20150709042534",
+        "email" : "gohan@super.saiyan",
+        "name"  : "Son Gohan",
+        "token" : "1967abc96f13e7aac003446c3ec0bd75c19aa145"
+    }},
+    { "facebook": {
+        "_id" : 12,
+        "photo" : "http://vignette2.wikia.nocookie.net/dragonball/images/0/02/Master_roshi.png/revision/latest?cb=20140801094833",
+        "email" : "master@roshi.com",
+        "name"  : "Jackie Chun",
+        "token" : "c3bc4179ace1f5e414b7d133bdf9e9adfaed6261"
+    }},
+    { "facebook": {
+        "_id" : 13,
+        "photo" : "http://img2.wikia.nocookie.net/__cb20131129144420/marvel_dc/images/f/f0/Barry_Allen_(Prime_Earth)_0001.png",
+        "email" : "flash@justiceleague.net",
+        "name"  : "Barry Allen",
+        "token" : "a75d13aa6dc38a5f12469c300828e3c97ecc9e17"
+    }},
+    { "facebook": {
+        "_id" : 14,
+        "photo" : "http://www.dcplanet.fr/wp-content/uploads/2014/12/Hal-Jordan-3.png",
+        "email" : "green.lantern@justiceleague.net",
+        "name"  : "Hal Jordan",
+        "token" : "7d7da7d612555e5503bcd9e9033aa32c8f225128"
+    }},
+    { "facebook": {
+        "_id" : 15,
+        "photo" : "http://nlcenters.org/wp-content/uploads/2014/07/Superman1.jpg",
+        "email" : "superman@justiceleague.net",
+        "name"  : "Clark Kent",
+        "token" : "201b8f20dd1695d7d46e80a23f0487d1cb91e255"
     }}
+
 ]
