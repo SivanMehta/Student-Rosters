@@ -126,10 +126,11 @@ function startGame(students)
         }
         display_row.appendChild(text_choices);
 
-        var question_img = document.createElement("img");
+        var question_prompt;
         try
         {
-            question_img.src = victims[correct].facebook.photo;
+            question_prompt = $.parseHTML("<div class = 'col-md-6'>" + "<p>Who is this?</p>" + 
+                                           "<img src = " + victims[correct].facebook.photo + ">" + "</div>")[0];
         }
         catch(err)
         {
@@ -137,10 +138,6 @@ function startGame(students)
             game_over();
         }
 
-        var question_prompt = document.createElement("p");
-        question_prompt.textContent = "Who is this?";
-
-        playground.appendChild(question_img);
         playground.appendChild(question_prompt);
         playground.appendChild(display_row);
     }
@@ -161,7 +158,7 @@ function startGame(students)
 
     game_over = function()
     {
-        $("#playground").html("");
+        $("#playground").html(""); $("#score").html("");
 
         var message = $.parseHTML("<div class='jumbotron'>" + 
                                         "<h1>Game Over!</h1>" +
