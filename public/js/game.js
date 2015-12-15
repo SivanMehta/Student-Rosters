@@ -114,17 +114,21 @@ function startGame(students)
         var display_row = document.createElement("div");
         display_row.className = "row";
 
-        var text_choices = document.createElement("div");
-        text_choices.className = "col-md-6";
+        var choice_container = document.createElement("div");
+        choice_container.className = "col-md-6";
+
+        var text_choices = document.createElement("ul");
+        text_choices.className = "list-group";
 
         for (var i = 0; i < victims.length; i++)
         {
             // <button type="button" className="btn btn-default">Default button</button>
-            var button = $.parseHTML("<button type = 'button' class = 'btn btn-default' onclick = 'guessPicture(" + i + ")'>" + victims[i].facebook.name + "</button>")[0];
+            var button = $.parseHTML("<li><button type = 'button' class = 'btn btn-default' onclick = 'guessPicture(" + i + ")'>" + victims[i].facebook.name + "</button></li>")[0];
 
             text_choices.appendChild(button);
         }
-        display_row.appendChild(text_choices);
+        choice_container.appendChild(text_choices)
+        display_row.appendChild(choice_container);
 
         var question_prompt;
         try
