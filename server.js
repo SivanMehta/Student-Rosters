@@ -5,7 +5,8 @@ https://scotch.io/tutorials/easy-node-authentication-setup-and-local
 
 var express  = require('express');
 var app      = express();
-var port     = process.env.PORT || 50000;
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port = process.env.OPENSHIFT_NODEJS_PORT || 50000;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
@@ -45,5 +46,7 @@ require('./app/models/enrollments.js').init(app);
 require('./app/models/game.js').init(app);
 
 // launch 
-app.listen(port);
-console.log('Server Running at localhost:' + port);
+app.listen(port, ipaddress, function() {
+  console.log('%s: Server started on %s:%d ...', Date(Date.now()), ipaddress, port);
+});
+
