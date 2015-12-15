@@ -3,6 +3,9 @@
 <nav class = "navbar navbar-default">
     <div class="container-fluid">
         <span class="navbar-brand"><h1>Student Roster Learning</h1></span>
+        <a href = "/logout" class = "navbar-text navbar-right"><button type = "button" class = "btn btn-danger" id = "startGame">
+            <span class="fa fa-sign-out"></span> Logout
+        </button></a>
         <ol class="breadcrumb navbar-text navbar-right">
             <% for(var i = 0; i < navData.breadcrumb.length; i++) { %>
                 <li><a href="<%= navData.breadcrumb[i][1] %>"><%= navData.breadcrumb[i][0] %></a></li>
