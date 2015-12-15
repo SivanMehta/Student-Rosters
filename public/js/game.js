@@ -1,13 +1,7 @@
-$("#startGame").click(function()
+setup_game = function()
 {
     $("#playground").html("");
 
-    setup_game();
-});
-
-
-setup_game = function()
-{
     var className = $("li a").contents()[1].data;
 
     $.ajax({
