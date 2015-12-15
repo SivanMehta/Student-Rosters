@@ -41,10 +41,16 @@ function startGame(students)
 
     var correct;
     var score = 0;
-    var round = 1;
+    var round = 0;
 
     guessTheName = function()
     {
+        if(round > 10)
+        {
+            game_over();
+            return;
+        }
+
         students = shuffle(students);
         var victims = students.slice(0, 4);
         correct = Math.round(Math.random() * 4);
@@ -64,7 +70,15 @@ function startGame(students)
         }
 
         var question_prompt = document.createElement("b");
-        question_prompt.textContent = "Who is " + victims[correct].facebook.name + "?";
+        try
+        {
+            question_prompt.textContent = "Who is " + victims[correct].facebook.name + "?";
+        }
+        catch(err)
+        {
+            console.error(err);
+            game_over();
+        }
 
         playground.appendChild(question_prompt);
         playground.appendChild(pictureRow);
@@ -78,18 +92,24 @@ function startGame(students)
             score += 1;
         }
         $("#playground").html("");
-        $("#score").html(score + "/" + round);
+        $("#score").html(score + " correct");
 
         round += 1;
-        guessThePicture();
+
+        setTimeout(guessThePicture, 500);
     }
 
     guessThePicture = function()
     {
+        if(round > 10)
+        {
+            game_over();
+            return;
+        }
+
         students = shuffle(students);
         var victims = students.slice(0, 4);
         correct = Math.round(Math.random() * 4);
-
 
         var display_row = document.createElement("div");
         display_row.className = "row";
@@ -104,8 +124,24 @@ function startGame(students)
 
             text_choices.appendChild(button);
         }
-
         display_row.appendChild(text_choices);
+
+        var question_img = document.createElement("img");
+        try
+        {
+            question_img.src = victims[correct].facebook.photo;
+        }
+        catch(err)
+        {
+            console.error(err);
+            game_over();
+        }
+
+        var question_prompt = document.createElement("p");
+        question_prompt.textContent = "Who is this?";
+
+        playground.appendChild(question_img);
+        playground.appendChild(question_prompt);
         playground.appendChild(display_row);
     }
 
@@ -116,10 +152,24 @@ function startGame(students)
             score += 1;
         }
         $("#playground").html("");
-        $("#score").html(score + "/" + round);
+        $("#score").html(score + " correct");
 
         round += 1;
-        guessTheName();
+
+        setTimeout(guessTheName, 500);
+    }
+
+    game_over = function()
+    {
+        $("#playground").html("");
+
+        var message = $.parseHTML("<div class='jumbotron'>" + 
+                                        "<h1>Game Over!</h1>" +
+                                        "<p>Your score was " + score + "/" + round + "!</p>" +
+                                        "<p><a class='btn btn-primary btn-lg' href=''javascript:history.go(0);'' role='button'>Play Again</a></p>" +
+                                  "</div>")[0];
+
+        playground.appendChild(message);
     }
 
     guessTheName()
