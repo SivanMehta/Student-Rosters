@@ -78,6 +78,7 @@ function startGame(students)
         {
             console.error(err);
             game_over();
+            return;
         }
 
         playground.appendChild(question_prompt);
@@ -140,6 +141,7 @@ function startGame(students)
         {
             console.error(err);
             game_over();
+            return;
         }
 
         playground.appendChild(question_prompt);
