@@ -1,3 +1,3 @@
 module.exports = {
-    'url' : "localhost:27017/studentRosters"
+    'url' : "mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/"
 };
