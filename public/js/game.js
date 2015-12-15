@@ -41,6 +41,7 @@ function startGame(students)
 
     var correct;
     var score = 0;
+    var round = 1;
 
     guessTheName = function()
     {
@@ -77,8 +78,9 @@ function startGame(students)
             score += 1;
         }
         $("#playground").html("");
-        $("#score").html(score);
+        $("#score").html(score + "/" + round);
 
+        round += 1;
         guessThePicture();
     }
 
@@ -109,7 +111,15 @@ function startGame(students)
 
     guessPicture = function(id)
     {
-        alert(id);
+        if(id == correct)
+        {
+            score += 1;
+        }
+        $("#playground").html("");
+        $("#score").html(score + "/" + round);
+
+        round += 1;
+        guessTheName();
     }
 
     guessTheName()
