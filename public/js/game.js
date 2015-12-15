@@ -6,7 +6,6 @@ $("#startGame").click(function()
 });
 
 
-var students;
 setup_game = function()
 {
     var className = $("li a").contents()[1].data;
@@ -17,13 +16,13 @@ setup_game = function()
         success: function(data, status)
         {
             students = JSON.parse(data);
-            startGame()
+            startGame(students)
         }
 
     });
 }
 
-function startGame()
+function startGame(students)
 {
     // Fisher-Yates Algorithm
     shuffle = function(arr)
@@ -50,7 +49,7 @@ function startGame()
         correct = Math.round(Math.random() * 4);
 
         var pictureRow = document.createElement("div");
-        pictureRow.class = "row";
+        pictureRow.className = "row";
 
         for(var i = 0; i < victims.length; i++)
         {
@@ -77,7 +76,40 @@ function startGame()
         {
             score += 1;
         }
-        console.log(score);
+        $("#playground").html("");
+        $("#score").html(score);
+
+        guessThePicture();
+    }
+
+    guessThePicture = function()
+    {
+        students = shuffle(students);
+        var victims = students.slice(0, 4);
+        correct = Math.round(Math.random() * 4);
+
+
+        var display_row = document.createElement("div");
+        display_row.className = "row";
+
+        var text_choices = document.createElement("div");
+        text_choices.className = "col-md-6";
+
+        for (var i = 0; i < victims.length; i++)
+        {
+            // <button type="button" className="btn btn-default">Default button</button>
+            var button = $.parseHTML("<button type = 'button' class = 'btn btn-default' onclick = 'guessPicture(" + i + ")'>" + victims[i].facebook.name + "</button>")[0];
+
+            text_choices.appendChild(button);
+        }
+
+        display_row.appendChild(text_choices);
+        playground.appendChild(display_row);
+    }
+
+    guessPicture = function(id)
+    {
+        alert(id);
     }
 
     guessTheName()

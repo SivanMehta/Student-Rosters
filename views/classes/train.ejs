@@ -6,11 +6,16 @@
 <body>
     <div class = "container">
         <% include ../partials/navbar %>
-        <div id = "playground">
+        <div class = "row">
 
-            <button type = "button" class = "btn btn-success btn-lg" id = "startGame">
-                <span class = "glyphicon glyphicon-play"></span> Start Game
-            </button>
+            <div id = "playground" class = "col-md-10 col-xs-6">
+                <button type = "button" class = "btn btn-success btn-lg" id = "startGame">
+                    <span class = "glyphicon glyphicon-play"></span> Start Game
+                </button>
+            </div>
+
+            <div id = "score" class = "col-md-2 col-xs-6">
+            </div>
 
         </div>
     </div>
