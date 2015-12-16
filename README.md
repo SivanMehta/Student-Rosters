@@ -27,3 +27,14 @@ I have taken the human interaction out of learning peoples names with this websi
   }
 ```
 
+You will also need to setup `config/auth.js` accordingly
+
+```JS
+module.exports = {
+    'facebook' : {
+        clientID      : '123456789', // your App ID
+        clientSecret  : 'This is a super secret', // your App Secret
+        callbackURL   : '/auth/facebook/callback' // set on developers.facebook.com
+    }
+}
+```
