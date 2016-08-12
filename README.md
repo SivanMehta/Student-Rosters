@@ -1,6 +1,6 @@
 # Student Rosters
 
-One problem that many professors have is learning their students names in a quick way. While some may resort to flashcards, or if they're truly desparate, actually having conversations with them.
+One problem that many professors have is learning their students names in a quick way. Some may resort to flashcards, or if they're truly desparate, actually having conversations with them.
 
 **Well There's Good News**
 
